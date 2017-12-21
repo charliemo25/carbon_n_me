@@ -1,0 +1,15 @@
+{
+    "name": "stagiaire/carbon-n-me",
+    "authors": [
+        {
+            "name": "mourad",
+            "email": "mourad.z@codeur.online"
+        }
+    ],
+
+    
+    "require": {
+        "twig/twig": "^2.4",
+        "altorouter/altorouter": "1.1.0"
+    }
+}

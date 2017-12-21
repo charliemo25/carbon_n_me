@@ -1,0 +1,25 @@
+Ctrl+O  Ouvrir un fichier
+Ctrl+N  Nouveau fichier
+Ctrl+Shift+N  Nouvelle fenêtre
+Ctrl+W  Fermer un fichier
+Ctrl+Shift+W  Fermer une fenêtre
+Ctrl+Shift+T  Rouvrir le dernier fichier fermé
+Ctrl+S  Sauvegarder
+Ctrl+Shift+S  Sauvegarder sous
+Ctrl+C  Copier la ligne ou la sélection
+Ctrl+X  Couper la ligne ou la sélection
+Ctrl+V  Coller la ligne ou la sélection
+Ctrl+Shift+V  Coller et indenter la ligne ou la sélection
+Ctrl+Y  Rétablir ou répéter
+Ctrl+Z  Annuler
+Ctrl+Shift+D  Dupliquer la ou les lignes
+Ctrl+ / Commenter
+Ctrl+Shift+ / Bloc de commentaire
+Ctrl+KU Mettre en majuscule
+Ctrl+KL Mettre en minuscule
+Ctrl+F  Ouvrir le panneau de recherche
+Ctrl+H  Ouvrir le panneau de remplacement
+Ctrl+Shift+P  Ouvrir la palette de commandes
+Alt+F3  Sélectionner toutes les occurrences
+Clic molette  Sélection verticale
+Ctrl+A  Sélectionner tout

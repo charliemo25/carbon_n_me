@@ -1,0 +1,35 @@
+{% extends 'template.html.twig' %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12 xl12">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Marque</th>
+                        <th>désignation commerciale</th>
+                        <th>Co2(g/km)</th>
+                        <th>Consommation urbaine</th>
+                        <th>Consommation hors ville</th>
+                        <th>consommation mixte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for voiture in voitures %}
+                       <tr>
+                        <td>{{voiture.marque}}</td>
+                        <td>{{voiture.dscom}}</td>
+                        <td>{{voiture.co2}}</td>
+                        <td>{{voiture.conso_urb}}</td>
+                        <td>{{voiture.conso_ext}}</td>
+                        <td>{{voiture.conso_mixte}}</td>
+                        </tr>    
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
