@@ -18,12 +18,12 @@
                     
                     {% for voiture in voitures %}
                        <tr>
-                        <td>{{voiture.marque}}</td>
-                        <td>{{voiture.dscom}}</td>
-                        <td>{{voiture.co2}}</td>
-                        <td>{{voiture.conso_urb}}</td>
-                        <td>{{voiture.conso_ext}}</td>
-                        <td>{{voiture.conso_mixte}}</td>
+                        <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.marque}}</a></td>
+                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.dscom}}</a></td>
+                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.co2}}</a></td>
+                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_urb}}</a></td>
+                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_ext}}</a></td>
+                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_mixte}}</a></td>
                         </tr>    
                     {% endfor %}
                     

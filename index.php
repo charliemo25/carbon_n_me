@@ -47,9 +47,11 @@ $router->map( 'POST|GET', '/search', function() {
 
     include_once 'models/pdo.php';
     include_once 'models/pagination.php';
-    var_dump($_REQUEST);
-    $voiture_tab = pagination($pdo, "Peugeot");
-
+    $marque = $_REQUEST["marque"];
+    $puiss_admin = $_REQUEST['puiss_admin'];
+    $carburant = $_REQUEST['carburant'];
+    $conso_mixte = $_REQUEST['conso_mixte'];
+    $voiture_tab = pagination($pdo, $marque, $puiss_admin, $carburant, $conso_mixte);
 	$template = $twig->load('search.html.twig');
 
 	echo $template->render(array('voitures' => $voiture_tab));
