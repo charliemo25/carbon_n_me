@@ -11,7 +11,7 @@ $twig = new Twig_Environment($loader, array(
 
 // Routage vers les pages.
 $router = new AltoRouter();
-$router->setBasePath('carbon-n-me/');
+$router->setBasePath('carbon_n_me/');
 $router->map( 'GET', '/', function() {
 
 	global $twig;
@@ -20,10 +20,10 @@ $router->map( 'GET', '/', function() {
 
 	$template = $twig->load('home.html.twig');
 
-	$test = "http://localhost/carbon-n-me/test";
-    
-    $search = "http://localhost/carbon-n-me/search";
-    
+	$test = "http://localhost/carbon_n_me/test";
+
+  $search = "http://localhost/carbon_n_me/search";
+
 // Action qui rend visible le html du fichier home.html.twig dans la page carbon-n-me.
 	echo $template->render(array('data' => $tableau, 'url' => $test));
 
@@ -41,14 +41,15 @@ $router->map( 'GET', '/test', function() {
 
 });
 
-$router->map( 'GET', '/search', function() {
+$router->map( 'POST|GET', '/search', function() {
 
 	global $twig;
-    
+
     include_once 'models/pdo.php';
     include_once 'models/pagination.php';
+    var_dump($_REQUEST);
     $voiture_tab = pagination($pdo, "Peugeot");
-    
+
 	$template = $twig->load('search.html.twig');
 
 	echo $template->render(array('voitures' => $voiture_tab));

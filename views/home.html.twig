@@ -1,87 +1,140 @@
 {% extends 'template.html.twig' %}
 {% block content %}
-  <!--En-tête du site-->
-  <div class="row">
-    <div class="col s12">This div is 12-columns wide on all screen sizes</div>
-    <header>
-      <div class="en_tete">
-        <h1>CARBON & ME</h1>
-        <img src="./img/image-pollution-automobile.jpg" alt="image auto" width="400" height="230">
-      </div>
-    </header>
-  </div>
+<!--En-tête du site-->
 
-  <!--Barre de navigation-->
-  <nav>
-    <div class="nav-wrapper">
+<header class="container">
+  <div class="row">
+    <div class="col s12 m12 l12 xl12">
+      <div class="en_tete">
+       <div>
+        <h1 class="center-align">CARBON & ME</h1>
+      </div>
+      <img src="./img/image-pollution-automobile.jpg" alt="image auto" width="400" height="230">
+    </div>
+  </div>
+</header>
+
+
+<!--Barre de navigation-->
+<nav class="container">
+  <div class="row">
+    <div class="nav-wrapper col s12 m12 l12 xl12">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Vue d'ensemble</a></li>
-        <li><a href="badges.html">Glossaire</a></li>
-        <li><a href="collapsible.html">liens utiles</a></li>
+        <li><a href="#">Vue d'ensemble</a></li>
+        <li><a href="#">Glossaire</a></li>
+        <li><a href="#">liens utiles</a></li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!--bloc formulaire véhicule-->
-  <section class="form">
-    <h5>Mesurez votre empreinte carbone</h5>
-    <!--Marque-->
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="text" id="autocomplete-input" class="autocomplete">
+<!--bloc formulaire véhicule-->
+<section class="container">
+  <div class="row">
+    <form action="http://localhost/carbon_n_me/search" method="POST" class=" col s12 m12 l12 xl12">
+      <p>Mesurez votre empreinte carbone</p>
+      <!--Marque-->
+      <div class="row">
+        <div class="col s12 m12 l12 xl12">
+          <div class="input-field col s12 m12 l12 xl12">
+            <input type="text" id="autocomplete-input" name="marque" class="autocomplete">
             <label for="autocomplete-input">Marque</label>
           </div>
         </div>
       </div>
-    </div>
-    <!--Puissance Admin-->
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
+      <!--Puissance Admin-->
+      <div class="row">
+        <div class="col s12">
           <div class="input-field col s12">
-            <input type="text" id="autocomplete-input" class="autocomplete">
+            <input type="text" id="autocomplete-input" name="puiss_admin" class="autocomplete">
             <label for="autocomplete-input">Puissance Admin.</label>
           </div>
         </div>
       </div>
-    </div>
-    <!--Carburant-->
-    <div class="input-field col s12">
-      <select>
-        <option value="" disabled selected>Carburant</option>
-        <option value="EE">Essence électricité (hybride rechargeable)
-        </option>
-        <option value="EH">Essence-électricité (hybride non rechargeable)
-        </option>
-        <option value="EL">Electricité
-        </option>
-        <option value="ES">Essence</option>
-        <option value="FE">Superéthanol
-        </option>
-        <option value="GH">Gazole-électricité (hybride non rechargeable)
-        </option>
-        <option value="GL">Gazole-électricité (hybride rechargeable)
-        </option>
-        <option value="GN">Gaz naturel
-        </option>
-        <option value="GO">Gazole</option>
-        <option value="GO">Gaz de pétrole liquéfié GPL (mélange spécial de butane et de propane, à l’exception des butane et propane commerciaux) utilisé en tant que carburant exclusif
-        </option>
-      </select>
-      <!--Conso-->
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="text" id="autocomplete-input" class="autocomplete">
-            <label for="autocomplete-input">Conso</label>
-          </div>
+      <!--Carburant-->
+      <div class="row">
+        <div class="input-field col s12">
+          <select name="carburant">
+            <option value="" disabled selected>Carburant</option>
+            <option value="EE">Essence électricité (hybride rechargeable)
+            </option>
+            <option value="EH">Essence-électricité (hybride non rechargeable)
+            </option>
+            <option value="EL">Electricité
+            </option>
+            <option value="ES">Essence</option>
+            <option value="FE">Superéthanol
+            </option>
+            <option value="GH">Gazole-électricité (hybride non rechargeable)
+            </option>
+            <option value="GL">Gazole-électricité (hybride rechargeable)
+            </option>
+            <option value="GN">Gaz naturel
+            </option>
+            <option value="GO">Gazole</option>
+            <option value="GP">Gaz de pétrole liquéfié GPL (mélange spécial de butane et de propane, à l’exception des butane et propane commerciaux) utilisé en tant que carburant exclusif
+            </option>
+          </select>
         </div>
       </div>
+      <!--Conso-->
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" id="autocomplete-input" name="conso_mixte" class="autocomplete">
+          <label for="autocomplete-input">Conso</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12 xl12">
+          <button type="submit" class="waves-effect waves-light btn">rechercher</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!--Carousel linéaire-->
+
+<section class="container">
+  <div class="row">
+    <div class="carousel carousel-slider col s12 m12 l12 xl12">
+      <a class="carousel-item" href="#one!"><img src="http://localhost/carbon_n_me/img/image-pollution-automobile.jpg"></a>
+      <a class="carousel-item" href="#two!"><img src="http://localhost/carbon_n_me/img/image-pollution-automobile.jpg"></a>
+      <a class="carousel-item" href="#three!"><img src="http://localhost/carbon_n_me/img/image-pollution-automobile.jpg"></a>
+      <a class="carousel-item" href="#four!"><img src="http://localhost/carbon_n_me/img/image-pollution-automobile.jpg"></a>
     </div>
-  </section>
+  </div>
+</section>
+
+<!--footer-->
+
+
+<div class="container">
+  <footer class="page-footer">
+    <div class="row">
+      <div class="col s12 m12 l12 xl12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
 {% endblock %}
