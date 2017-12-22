@@ -13,7 +13,7 @@
                     <div class="col s12 m8 l8 xl8">
                         <div>
                             <div class="card-content">
-                                <span class="card-title">ALPHA-ROMEO</span>
+                                <span class="card-title">{{voiture.0.5.marque}}</span>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et odio tempore sapiente, nulla debitis ad voluptatum neque, laudantium libero ipsam possimus qui sint quo eveniet. Minus aliquid dignissimos, alias at?</p>
                             </div>
                         </div>
@@ -26,55 +26,59 @@
                         <tbody>
                             <tr>
                                 <th>Marque :</th>
-                                <td>ALPHA-ROMEO</td>
+                                <td>{{voiture.0.5.marque}}</td>
                             </tr>
                             <tr>
                                 <th>Désignation commerciale :</th>
-                                <td>159 1750 Tbi (200ch)</td>
+                                <td>{{voiture.0.5.dscom}}</td>
                             </tr>
                             <tr>
                                 <th>Technologie (Essence, Hybride) :</th>
-                                <td>ES</td>
+                                <td>{{voiture.0.5.type_carb}}</td>
                             </tr>
                             <tr>
                                 <th>Puissance admin :</th>
-                                <td>12</td>
+                                <td>{{voiture.0.5.puiss_admin}}</td>
                             </tr>
                             <tr>
                                 <th>Type de boîte :</th>
-                                <td>M 6</td>
+                                <td>{{voiture.0.5.boite_rapport}}</td>
                             </tr>
                             <tr>
                                 <th>Consommation urbaine :</th>
-                                <td>11.3</td>
+                                <td>{{voiture.0.5.conso_urb}}</td>
                             </tr>
                             <tr>
                                 <th>Consommation non-urbaine :</th>
-                                <td>5.8</td>
+                                <td>{{voiture.0.5.conso_ext}}</td>
                             </tr>
                             <tr>
                                 <th>Consommation mixte :</th>
-                                <td>7.8</td>
+                                <td>{{voiture.0.5.conso_mixte}}</td>
                             </tr>
                             <tr>
                                 <th>Classe Energie (A, B, etc) :</th>
-                                <td>E</td>
+                                <td>{{energie.0.label}}</td>
                             </tr>
                             <tr>
                                 <th>CO² g/km :</th>
-                                <td>182</td>
+                                <td>{{voiture.0.5.co2}}</td>
                             </tr>
                             <tr>
-                                <th>Bonus / Malus :</th>
-                                <td>- 7613 €</td>
+                                <th>Bonus :</th>
+                                <td>{{bonus.0.montant}}</td>
+                            </tr>
+                            <tr>
+                                <th>Malus :</th>
+                                <td>{{malus.0.montant}} €</td>
                             </tr>
                             <tr>
                                 <th>Carrosserie :</th>
-                                <td>BERLINE</td>
+                                <td>{{voiture.0.5.carrosserie}}</td>
                             </tr>
                             <tr>
                                 <th>Gamme :</th>
-                                <td>MOY-SUPER</td>
+                                <td>{{voiture.0.5.gamme}}</td>
                             </tr>
                         </tbody>
                     </table>
