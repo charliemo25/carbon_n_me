@@ -63,18 +63,30 @@ $router->map( 'GET', '/voiture', function() {
 
 global $twig;
 
+$template = $twig->load('voiture.html.twig');
+
+echo $template->render(array('data' => 'voiture'));
+
 include_once 'models/pdo.php';
 include_once 'models/getVoiture.php';
 $voiture = getVoiture($pdo);
-$energie = getEnergie($pdo);
-$bonus = getBonus($pdo);
-$malus = getMalus($pdo);
+var_dump($voiture);
 
-$template = $twig->load('voiture.html.twig');
-echo $template->render(array('voiture' => $voiture,'energie' => $energie, 'bonus' => $bonus, 'malus' => $malus	));
 
 });
 
+//Routage vers la page nav.html.twig.
+/*
+$router->map( 'GET', '/nav', function() {
+
+global $twig;
+
+$template = $twig->load('nav.html.twig');
+
+echo $template->render(array('data' => 'nav');
+
+});
+*/
 
 
 
