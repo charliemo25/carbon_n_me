@@ -1,34 +1,48 @@
-{% extends 'template.html.twig' %} 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12 l12 xl12">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th>Marque</th>
-                        <th>désignation commerciale</th>
-                        <th>Co2(g/km)</th>
-                        <th>Consommation urbaine</th>
-                        <th>Consommation hors ville</th>
-                        <th>consommation mixte</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    {% for voiture in voitures %}
-                       <tr>
-                        <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.marque}}</a></td>
-                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.dscom}}</a></td>
-                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.co2}}</a></td>
-                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_urb}}</a></td>
-                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_ext}}</a></td>
-                           <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_mixte}}</a></td>
-                        </tr>    
-                    {% endfor %}
-                    
-                </tbody>
-            </table>
+{% extends 'template.html.twig' %} {% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Marque</th>
+                            <th>désignation commerciale</th>
+                            <th>Puissance administrative</th>
+                            <th>Co2(g/km)</th>
+                            <th>Consommation urbaine</th>
+                            <th>Consommation hors ville</th>
+                            <th>consommation mixte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for voiture in voitures %}
+                        <tr>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.marque}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.dscom}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.puiss_admin}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.co2}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_urb}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_ext}}</a></td>
+                            <td><a href="http://localhost/carbon_n_me/voiture/{{voiture.id_voiture}}">{{voiture.conso_mixte}}</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="pagination">
+                  <li><a href="http://localhost/carbon_n_me/search/1">1</a></li>
+                  <li><a href="http://localhost/carbon_n_me/search/2">2</a></li>
+                  <li><a href="http://localhost/carbon_n_me/search/3">3</a></li>
+                  <li><a href="http://localhost/carbon_n_me/search/4">4</a></li>
+                  <li><a href="http://localhost/carbon_n_me/search/5">5</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

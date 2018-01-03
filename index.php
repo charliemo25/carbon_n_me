@@ -12,6 +12,7 @@ $twig = new Twig_Environment($loader, array(
 // Routage vers les pages.
 $router = new AltoRouter();
 $router->setBasePath('carbon_n_me/');
+
 $router->map( 'GET', '/', function() {
 
 	global $twig;
@@ -29,6 +30,22 @@ $router->map( 'GET', '/', function() {
 
 });
 
+$router->map( 'GET', '/home', function() {
+
+  global $twig;
+
+  $tableau = ['base', 'category', 'subcategory', 'item', 'color', ];
+
+  $template = $twig->load('home.html.twig');
+
+  $test = "http://localhost/carbon_n_me/test";
+
+  $search = "http://localhost/carbon_n_me/search";
+
+// Action qui rend visible le html du fichier home.html.twig dans la page carbon-n-me.
+  echo $template->render(array('data' => $tableau, 'url' => $test));
+
+});
 //Routage vers la page test.html.twig.
 
 $router->map( 'GET', '/test', function() {
@@ -41,75 +58,85 @@ $router->map( 'GET', '/test', function() {
 
 });
 
-$router->map( 'POST|GET', '/search', function() {
+$router->map( 'POST|GET', '/search/[i:id]', function($id) {
 
 	global $twig;
 
     include_once 'models/pdo.php';
-    include_once 'models/pagination.php';
-    $marque = $_REQUEST["marque"];
-    $puiss_admin = $_REQUEST['puiss_admin'];
-    $carburant = $_REQUEST['carburant'];
-    $conso_mixte = $_REQUEST['conso_mixte'];
-    $voiture_tab = pagination($pdo, $marque, $puiss_admin, $carburant, $conso_mixte);
-	$template = $twig->load('search.html.twig');
+    include_once 'models/search.php';
+    
+    $marque = "";
+    $puiss_admin = "";
+    $carburant = "";
+    $conso_mixte = "";
+    
+    if(isset($_REQUEST['marque'])){
+        $marque = $_REQUEST['marque'];  
+    } elseif(isset($_COOKIE['marque'])){
+        $marque = $_COOKIE['marque'];
+    }
+    
+    if(isset($_REQUEST['puiss_admin'])){
+        $puiss_admin = $_REQUEST['puiss_admin'];   
+    } elseif(isset($_COOKIE['puiss_admin'])){
+        $puiss_admin = $_COOKIE['puiss_admin'];
+    }
+    
+    if(isset($_REQUEST['carburant'])){
+        $carburant = $_REQUEST['carburant'];  
+    } elseif(isset($_COOKIE['carburant'])){
+        $carburant = $_COOKIE['carburant'];
+    }
+    
+    if(isset($_REQUEST['conso_mixte'])){
+        $conso_mixte = $_REQUEST['conso_mixte'];
+    } elseif(isset($_COOKIE['conso_mixte'])){
+        $conso_mixte = $_COOKIE['conso_mixte'];
+    }
+    
+    if(isset($_COOKIE['marque']) || isset($_COOKIE['puiss_admin']) || isset($_COOKIE['carburant']) || isset($_COOKIE['conso_mixte'])){
+        unset($_COOKIE);
+    }
+    
+    setcookie("marque", $marque, time()+3600);
+    setcookie("puiss_admin", $puiss_admin, time()+3600);
+    setcookie("carburant", $carburant, time()+3600);
+    setcookie("conso_mixte", $conso_mixte, time()+3600);
+    
+    
+    
+    
+    $recherche = new Search($pdo, $marque, $puiss_admin, $carburant, $conso_mixte, $id);
 
-	echo $template->render(array('voitures' => $voiture_tab));
+    $recherche->manage_limit();
+    $voiture_tab = $recherche->result();
+    
+    var_dump("Nombre de voitures: ".count($voiture_tab));
+    
+    $template = $twig->load('search.html.twig');
+	echo $template->render(array('voitures' => $voiture_tab, 'page' => $id));
 
 });
 
-$router->map( 'GET', '/voiture', function() {
 
+$router->map( 'GET', '/voiture/[i:id]', function($id) {
 
-global $twig;
+    global $twig;
 
-$template = $twig->load('voiture.html.twig');
+    include_once 'models/pdo.php';
+    include_once 'models/getVoiture.php';
 
-echo $template->render(array('data' => 'voiture'));
+    $voiture = new Voiture($pdo, $id);
 
-include_once 'models/pdo.php';
-include_once 'models/getVoiture.php';
-$voiture = getVoiture($pdo);
-var_dump($voiture);
-
-
-});
-
-//Routage vers la page nav.html.twig.
-/*
-$router->map( 'GET', '/nav', function() {
-
-global $twig;
-
-$template = $twig->load('nav.html.twig');
-
-echo $template->render(array('data' => 'nav');
+    $voiture_info = $voiture->getVoiture();
+    $energie = $voiture->getEnergie();
+    $bonus = $voiture->getBonus();
+    $malus = $voiture->getMalus();
+    
+    $template = $twig->load('voiture.html.twig');
+    echo $template->render(array('voiture' => $voiture_info,'energie' => $energie, 'bonus' => $bonus, 'malus' => $malus	));
 
 });
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // match current request url
