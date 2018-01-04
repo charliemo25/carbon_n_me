@@ -27,7 +27,7 @@ class Search{
         if($this->page == 1){
             $this->offset_voiture = 0;
         } else{
-            $this->offset_voiture = 50*$this->page;
+            $this->offset_voiture = 50*($this->page - 1 );
         }
     }
     
@@ -91,18 +91,6 @@ class Search{
 
         return $result;
     }
-    
-    /*public function pagi(){
-        
-        $sql = "select * from voiture";
-        $sql.=" limit ".$this->limit_voiture." offset ".$this->offset_voiture;
-        
-        $req = $this->pdo->prepare($sql);
-        $req->execute();
-        $result = $req->fetchAll();
-
-        return $result;
-    }*/
     
 }
 

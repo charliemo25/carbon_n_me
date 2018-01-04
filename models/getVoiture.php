@@ -41,6 +41,14 @@ class Voiture {
 		$result = $req->fetchAll();
 		return $result; 
 	}
+    
+    public function getMaxCo2(){
+		$req = $this->pdo->prepare('select distinct dscom, marque, co2 from voiture order by co2 desc limit 5');
+		$req->bindParam(':id', $this->id);
+		$req->execute();
+		$result = $req->fetchAll();
+		return $result;
+	}
 
 }
 

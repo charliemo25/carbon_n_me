@@ -65,6 +65,10 @@ $router->map( 'POST|GET', '/search/[i:id]', function($id) {
     include_once 'models/pdo.php';
     include_once 'models/search.php';
     
+    if($id<=0){
+        header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+    }
+    
     $marque = "";
     $puiss_admin = "";
     $carburant = "";
@@ -111,10 +115,15 @@ $router->map( 'POST|GET', '/search/[i:id]', function($id) {
     $recherche->manage_limit();
     $voiture_tab = $recherche->result();
     
-    var_dump("Nombre de voitures: ".count($voiture_tab));
+    $nb_voitures = count($voiture_tab);
+    $suivant = false;
+    
+    if($nb_voitures == 50){
+        $suivant = true;
+    }
     
     $template = $twig->load('search.html.twig');
-	echo $template->render(array('voitures' => $voiture_tab, 'page' => $id));
+	echo $template->render(array('voitures' => $voiture_tab, 'page' => $id, "suivant" => $suivant));
 
 });
 
