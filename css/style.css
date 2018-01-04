@@ -48,6 +48,12 @@
 
 /* Fin Charlie*/
 /* D├®but Mourad */
+#formulaire {
+  padding-top: 5%;
+  padding-bottom: 5%; }
+  #formulaire div {
+    padding-bottom: 2%; }
+
 .contenu {
   position: absolute;
   width: 30%;

@@ -1,30 +1,5 @@
 {% extends 'template.html.twig' %} {% block content %}
 
-<nav class="navbar navbar-ct-transparent" role="navigation-demo" id="demo-navbar">
-    <div class="container">
-        <div class="col-md-6">
-            <ul class="nav nav-pills nav-pills-danger" role="tablist">
-                <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-                <li class="active">
-                    <a href="#info" role="tab" data-toggle="tab">
-                       Info
-                   </a>
-               </li>
-               <li>
-                <a href="#description" role="tab" data-toggle="tab">
-                 Menu
-             </a>
-         </li>
-         <li>
-            <a href="#concept" role="tab" data-toggle="tab">
-               Concept
-           </a>
-       </li>
-   </ul>
-</div>
-</div>
-</nav>
-
 <div class="wrapper">
     <div class="demo-header demo-header-image">
         <div class="motto">
@@ -40,14 +15,12 @@
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <div class="carousel slide" data-ride="carousel">
 
-            <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <img  class="slideCar" id="bmw" src="/carbon_n_me/img/bmw.jpg" alt="véhicule bmw" width="750" height="500">
@@ -64,7 +37,6 @@
                 </div>
             </div>
 
-            <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
               <span class="fa fa-angle-left"></span>
           </a>
@@ -93,7 +65,7 @@
         <!--      Wizard container        -->
         <div class="wizard-container">
             <div class="card wizard-card" data-color="red" id="wizard">
-                <form action="http://localhost/carbon_n_me/search/1" method="POST">
+                <form id="formulaire" action="http://localhost/carbon_n_me/search/1" method="POST">
 
                     <div class="form-group">
                         <label for="marque">Marque</label>
@@ -104,7 +76,7 @@
                       <input type="text" class="form-control" id='puiss_admin' placeholder="Puiss. Admin." name="puiss_admin">
                   </div>
                   <div class="form-group">
-                      <select class="form-control">
+                      <select class="form-control" name="carburant">
                         <option value="" disabled selected>Carburant</option>
                         <option value="EE">Essence électricité (hybride rechargeable)
                         </option>
@@ -138,25 +110,4 @@
  </div> <!-- wizard container -->
 </div>
 </div>
-
-
-<footer class="footer-demo section-dark">
-    <div class="container">
-        <nav class="pull-left">
-            <ul>
-                <li>
-                    <a href="http://www.creative-tim.com">
-                      Créer par: Charlie Benoit &amp; Mourad - CBM -
-                  </a>
-              </li>
-              <li>
-              </ul>
-          </nav>
-          <div class="copyright pull-right">
-            &copy; 2018
-        </div>
-    </div>
-</footer>
-
-
 {% endblock %}
