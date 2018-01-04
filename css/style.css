@@ -63,6 +63,9 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   text-shadow: 1px 1px #000000; }
 
+#carousel {
+  margin-top: -10px; }
+
 /* Fin Mourad */
 
 /*# sourceMappingURL=style.css.map */
